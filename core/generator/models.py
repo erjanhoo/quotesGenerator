@@ -8,9 +8,10 @@ class Author(models.Model):
     
 class Quote(models.Model):
     quote = models.CharField(max_length=123)
-    author = models.ForeignKey(Author)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
 
     def __str__(self):
         words = self.quote.split()
         return ''.join(words[:5])
+    
     
